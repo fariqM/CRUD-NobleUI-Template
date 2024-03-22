@@ -1,0 +1,87 @@
+@extends('layout.master')
+
+@section('content')
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                         <h6 class="card-title">Edit %%modelName%% #{{ $%%crudNameSingular%%->%%primaryKey%% }}</h6>
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                    </div>
+                   
+                    @if ($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-alert-circle">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            Data belum disimpan, mohon periksa kolom input anda.
+                        </div>
+                    @endif
+                    @if (session('page_error'))
+                        <div class="alert alert-danger" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-alert-circle">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            {{ session('page_error') }}
+                        </div>
+                    @endif
+                    @if (session('page_success'))
+                        <div class="alert alert-success" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-alert-circle">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            {{ session('page_success') }}
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%%) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        {{ method_field('PATCH') }}
+                        {{ csrf_field() }}
+
+                        @include ('%%viewTemplateDir%%.form', ['formMode' => 'edit'])
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@push('plugin-styles')
+    <link href="{{ asset('assets/plugins/select2/select2.min.css') }}" rel="stylesheet" />
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+@endpush
+
+@push('plugin-scripts')
+    <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
+@endpush
+
+@push('custom-scripts')
+    <script>
+        // $('#mbkm_place_id').select2();
+    </script>
+@endpush

@@ -1,0 +1,7 @@
+Laravel 10 with crud template + NobleUI
+Library:
+- laravel Excel
+- Spatie Permission
+- Crud Generator
+
+

@@ -1,0 +1,13 @@
+example
+
+php artisan crud:view Users --fields="name#string; email#string; address#text" --view-path="master" --form-helper=noble
+
+php artisan crud:controller RoleManagementController --crud-name=Users --model-name=User --model-namespace=Models --view-path="master" 
+
+
+php artisan crud:view TutorLectures --fields="nik#string; name#string; address#text; bank_account#string; status#select#options=['active' => 'active','nonactive' => 'nonactive']" --view-path="master" --form-helper=noble
+
+php artisan crud:controller TutorLectureController --crud-name=TutorLectures --model-name=TutorLecture --model-namespace=Models --view-path="master"
+
+php artisan crud:generate TutorLectures --fields="nik#string; name#string; address#text; bank_account#string; status#select#options=['active' => 'active','nonactive' => 'nonactive']" --view-path=master --controller-namespace=App\Http\Controllers --form-helper=noble
+
