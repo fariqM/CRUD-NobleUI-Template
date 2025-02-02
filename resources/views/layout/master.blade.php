@@ -49,8 +49,8 @@
     </div>
 
     <!-- base js -->
-    <script src="{{ assets('assets/js/axios.min.js') }}"></script>
-    <script src="{{ assets('assets/js/vue.min.js') }}"></script>
+    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vue.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/plugins/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
