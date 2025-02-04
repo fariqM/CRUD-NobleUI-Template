@@ -1,5 +1,9 @@
 example
 
+RUN FIRST ---
+php artisan vendor:publish --provider="Appzcoder\CrudGenerator\CrudGeneratorServiceProvider"
+RUN FIRST ---
+
 php artisan crud:view Users --fields="name#string; email#string; address#text" --view-path="master" --form-helper=noble
 
 php artisan crud:controller RoleManagementController --crud-name=Users --model-name=User --model-namespace=Models --view-path="master" 
